@@ -11,7 +11,7 @@ import random
 import os
 import sys
 
-DIR_DATA = "data/oboobs"
+DIR_DATA = "data/modboobs"
 SETTINGS = DIR_DATA+"/settings.json"
 DEFAULT = {"nsfw_channels": ["133251234164375552"], "invert" : False, "nsfw_msg": True, "last_update": 0,  "ama_boobs": 10548, "ama_ass": 4542}# Red's testing chan. nsfw content off by default.
 
@@ -32,18 +32,17 @@ DEFAULT = {"nsfw_channels": ["133251234164375552"], "invert" : False, "nsfw_msg"
 #example: "/butts/vote/6202/minus/" - negative vote for butts with id 6202; vote for noise: "/noise/vote/{id=0}/{operation=plus;[plus,minus]}/",
 #example: "/noise/vote/57/minus/" - negative vote for noise with id 57;
 
-class oboobs:
-    """The oboobs/obutts.ru NSFW pictures of nature cog.
-    https://github.com/Canule/Mash-Cogs
+class modboobs:
+    """The modboobs/obutts.ru NSFW pictures of nature cog.
     """
 
     def __init__(self, bot):
         self.bot = bot
         self.settings = dataIO.load_json(SETTINGS)
 
-    @commands.group(name="oboobs", pass_context=True)
-    async def _oboobs(self, ctx):
-        """The oboobs/obutts.ru pictures of nature cog."""
+    @commands.group(name="modboobs", pass_context=True)
+    async def _modboobs(self, ctx):
+        """The modboobs/obutts.ru pictures of nature cog."""
         if ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
             return
@@ -119,9 +118,9 @@ class oboobs:
                 await self.bot.reply("nsfw content is not allowed in this channel, instead I have send you a DM.")
 
     @checks.admin_or_permissions(manage_server=True)
-    @_oboobs.command(pass_context=True, no_pm=True)
+    @_modboobs.command(pass_context=True, no_pm=True)
     async def nsfw(self, ctx):
-        """Toggle oboobs nswf for this channel on/off.
+        """Toggle modboobs nswf for this channel on/off.
         Admin/owner restricted."""
         nsfwChan = None
         # Reset nsfw.
@@ -139,7 +138,7 @@ class oboobs:
         dataIO.save_json(SETTINGS, self.settings)
         
     @checks.admin_or_permissions(manage_server=True)
-    @_oboobs.command(pass_context=True, no_pm=True)
+    @_modboobs.command(pass_context=True, no_pm=True)
     async def invert(self, ctx):
         """Invert nsfw blacklist to whitlist
         Admin/owner restricted."""
@@ -152,9 +151,9 @@ class oboobs:
         dataIO.save_json(SETTINGS, self.settings)    
 
     @checks.admin_or_permissions(manage_server=True)
-    @_oboobs.command(pass_context=True, no_pm=True)
+    @_modboobs.command(pass_context=True, no_pm=True)
     async def togglemsg(self, ctx):
-        """Enable/Disable the oboobs nswf not allowed message
+        """Enable/Disable the omodboobs nswf not allowed message
         Admin/owner restricted."""
         # Toggle
         if self.settings["nsfw_msg"]:
@@ -242,7 +241,7 @@ class oboobs:
 
 def check_folders():
     if not os.path.exists(DIR_DATA):
-        print("Creating data/oboobs folder...")
+        print("Creating data/modboobs folder...")
         os.makedirs(DIR_DATA)
 
 def check_files():
@@ -266,6 +265,6 @@ def check_files():
 def setup(bot):
     check_folders()
     check_files()
-    bot.add_cog(oboobs(bot))
-    bot.loop.create_task(oboobs.boob_knowlegde())
+    bot.add_cog(modboobs(bot))
+    bot.loop.create_task(modboobs.boob_knowlegde())
 
