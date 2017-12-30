@@ -49,7 +49,7 @@ class modboobs:
 
     # Boobs
     @commands.command(pass_context=True, no_pm=False)
-    async def tiity(self, ctx):
+    async def titty(self, ctx):
         """Shows some boobs."""
         author = ctx.message.author
         dis_nsfw = None
