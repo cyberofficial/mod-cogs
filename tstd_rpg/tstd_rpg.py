@@ -717,7 +717,7 @@ class AlcherRPG:
             await self.bot.say(embed=em)
         else:
             # calulate time left
-            seconds = 30 - delta
+            seconds = 70 - delta
             m, s = divmod(seconds, 60)
             h, m = divmod(m, 60)
             em = discord.Embed(description="```diff\n- Your not tired!\n\n- Time left:\n- {} Hours, {} Minutes, and {} Seconds```".format(int(h), int(m), int(s)), color=discord.Color.red())
