@@ -696,7 +696,7 @@ class AlcherRPG:
     async def rest(self, ctx):
         channel = ctx.message.channel
         user = ctx.message.author
-        HPget = random.randint(10, 40)
+        HPget = random.randint(40, 80)
         userinfo = fileIO("data/rpgmodded/players/{}/info.json".format(user.id), "load")
         if userinfo["race"] and userinfo["class"] == "None":
             await self.bot.say("Please start your character using `>start`")
@@ -717,7 +717,7 @@ class AlcherRPG:
             await self.bot.say(embed=em)
         else:
             # calulate time left
-            seconds = 120 - delta
+            seconds = 30 - delta
             m, s = divmod(seconds, 60)
             h, m = divmod(m, 60)
             em = discord.Embed(description="```diff\n- Your not tired!\n\n- Time left:\n- {} Hours, {} Minutes, and {} Seconds```".format(int(h), int(m), int(s)), color=discord.Color.red())
