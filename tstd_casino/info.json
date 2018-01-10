@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "Owner: Redjumpman -- Modded by: Cyb3rHacker",
+    "SHORT" : "Casino mini game system, modded by cyb3rhack3r for TSTD Clan",
+    "DESCRIPTION" : "Allows you to create your own Casino system. Can play blackjack, coin, dice, allin, war, hi-lo, and cups.",
+    "DISABLED" : false,
+    "NAME" : "TSTD_Casino",
+    "REQUIREMENTS" : ["tabulate", "python-dateutil"],
+    "TAGS" : ["casino", "games", "gambling", "economy"],
+    "INSTALL_MSG" : "Thank you for installing the TSTD Casino. This was made for the TSTD Clan. Requested by Cyb3rOfficial."
+}
